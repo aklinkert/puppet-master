@@ -12,7 +12,7 @@ Puppet-Master is using [puppeteer](https://pptr.dev/) ([GitHub](https://github.c
 You can talk to puppet-master via the [HTTP API](api.md). There are already some clients available, check out the [clients](clients.md) section. An extensive documentation of features, tools and functions available during code execution can be found in the [code execution](execution.md) section.
 
 
-## Quick Example
+## Complete Example
 
 Let's take the [google example from puppeteers Github repo](https://github.com/GoogleChrome/puppeteer/blob/d68033aeca234a93c9ac5298258a5d324748466a/examples/search.js) and execute it using puppet-master. This is the example code:
 
@@ -163,6 +163,8 @@ As you can see, the API returns the job with a status `created`, which means tha
 ```
 
 Pretty cool, huh? We get a lot of information out there: How long the code took to execute, what logs were yielded and the results, in this case the links we scraped. You can find more about the execution context and available utils as well as some internals at the [execution](execution.md) section.
+
+> **Note**: Did you notice the `modules` object? Head over to the [modules](modules.md) section to learn more about that.
 
 
 ---------------------------------
