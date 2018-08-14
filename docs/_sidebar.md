@@ -2,12 +2,9 @@
 
 * Usage
   * [Clients](clients.md)
-
-* Cloud Hosted
-  * [Pricing]()
   * [API](api.md)
+  * [Support](support.md)
 
-* Self Hosted
-  * Setup
-  * API
-  * Support
+* Setup
+  * [Cloud](cloud.md)
+  * [Self Hosted](self_hosted.md)

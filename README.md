@@ -1,6 +1,8 @@
 # puppet-master
 
-puppet-master is a tool that executes website interaction code, written in ES6, in a highyl scalable and flexible manner.
+puppet-master is a tool that executes website interaction code, written in ES6, in a highyl scalable and flexible manner. Head over to the [Docs](https://docs.puppet-master.io) for more information about setup, configuration and usage. [Signup for the hosted cloud version](https://puppet-master.io/register) or [host your own instance](https://docs.puppet-master.io/#/self_hosted).
+
+[Docs](https://docs.puppet-master.io)
 
 
 ## License
