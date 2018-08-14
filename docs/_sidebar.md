@@ -3,5 +3,11 @@
 * Usage
   * [Clients](clients.md)
 
-* Reference
+* Cloud Hosted
+  * [Pricing]()
   * [API](api.md)
+
+* Self Hosted
+  * Setup
+  * API
+  * Support
