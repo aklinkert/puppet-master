@@ -3,7 +3,7 @@
 
 ## What? What is this? Why does it exist?
 
-Over the last year we came acros the need to abstract the way we interacted with websites. For some different projects we build this product to centralize the code execution within a single product. Think about puppet-master as a modern replacement for selenium or similar products - you write frontend code and give it to an API -   a browser is launched, the code is executed and results and logs are returned. Simple as \*\*\*\*. :flushed:
+Over the last year we came across the need to abstract the way we interact with websites. For some different projects we built this product to centralize the code execution within a single app. Think about puppet-master as a modern replacement for selenium or similar products - you write frontend code and give it to an API -   a browser is launched, the code is executed and results and logs are returned. Simple as \*\*\*\*. :flushed:
 
 ## How does it work?
 
