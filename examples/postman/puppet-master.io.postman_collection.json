@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "f4f649a9-5743-4878-b21e-9a847436498c",
+		"name": "puppet-master.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{gateway_address}}/jobs/{{last_job_id}}",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs",
+						"{{last_job_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{gateway_address}}/jobs",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Job (simple w/ modules)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce4426fb-055a-4570-b5fa-a51779f5f4ed",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if ('uuid' in jsonData.data) {",
+							"    postman.setEnvironmentVariable(\"last_job_id\", jsonData.data.uuid);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"import {getIp} from 'shared';\\n\\nawait page.goto(vars.page);\\nconst ip = await getIp(page);\\n\\nlogger.info(ip);\\nresults.ip = ip;\",\n    \"vars\": {\n        \"page\": \"http://ifcfg.co\"\n    },\n    \"modules\": {\n        \"shared\": \"export async function getIp(page) {\\n  const text = await page.evaluate(() => document.querySelector('body').textContent);\\n  return text.split(\\\":\\\")[1];\\n}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{gateway_address}}/jobs",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Job (search)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce4426fb-055a-4570-b5fa-a51779f5f4ed",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if ('uuid' in jsonData.data) {",
+							"    postman.setEnvironmentVariable(\"last_job_id\", jsonData.data.uuid);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"await page.goto('https://developers.google.com/web/');\\nawait page.type('#searchbox input', vars.term);\\n\\n// Wait for suggest overlay to appear and click \\\"show all results\\\".\\nconst allResultsSelector = '.devsite-suggest-all-results';\\nawait page.waitForSelector(allResultsSelector);\\nawait page.click(allResultsSelector);\\n\\n// Wait for the results page to load and display the results.\\nconst resultsSelector = '.gsc-results .gsc-thumbnail-inside a.gs-title';\\nawait page.waitForSelector(resultsSelector);\\n\\n// Extract the results from the page.\\nconst links = await page.evaluate(resultsSelector => {\\n  const anchors = Array.from(document.querySelectorAll(resultsSelector));\\n  return anchors.map(anchor => {\\n    const title = anchor.textContent.split('|')[0].trim();\\n    return `${title} - ${anchor.href}`;\\n  });\\n}, resultsSelector);\\n\\nresults.links = links;\",\n    \"vars\": {\n        \"term\": \"Headless Chrome\"\n    },\n    \"modules\": {}\n}"
+				},
+				"url": {
+					"raw": "{{gateway_address}}/jobs",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Job (simple)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce4426fb-055a-4570-b5fa-a51779f5f4ed",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if ('uuid' in jsonData.data) {",
+							"    postman.setEnvironmentVariable(\"last_job_id\", jsonData.data.uuid);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"logger.info(\\\"Alright, Kids?\\\");\\r\\nlogger.info(`Aye Aye, ${vars.name}!`);\\r\\nresults.okay =  1;\\r\\nresults.value =  Math.random() * 6 +1;\",\n\t\"vars\": {\n\t\t\"name\": \"Captain\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{gateway_address}}/jobs",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Job (dump)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b365b2c3-2ba0-459f-8f55-025998320a85",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if ('uuid' in jsonData.data) {",
+							"    postman.setEnvironmentVariable(\"last_job_id\", jsonData.data.uuid);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"await page.goto(vars.page);\\nconst text = await page.evaluate(() => document.querySelector('body').textContent);\\nlogger.info(text);\\nresults.text = text;\\nresults.ip = text.split(\\\":\\\")[1];\",\n\t\"vars\": {\n\t\t\"page\": \"http://ifcfg.co\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{gateway_address}}/jobs",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Job (Screenshot)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3196e6f-6036-4ca9-a324-9c62288527bb",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if ('uuid' in jsonData.data) {",
+							"    postman.setEnvironmentVariable(\"last_job_id\", jsonData.data.uuid);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"await page.goto(\\\"https://hide.me/check\\\"); const scr = await page.screenshot();\\r\\n results.value = scr.toString('base64')\",\n\t\"vars\": {\n\t\t\"name\": \"Master\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{gateway_address}}/jobs",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Job",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{gateway_address}}/jobs/{{last_job_id}}",
+					"host": [
+						"{{gateway_address}}"
+					],
+					"path": [
+						"jobs",
+						"{{last_job_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token}}",
+				"type": "string"
+			}
+		]
+	}
+}
