@@ -23,6 +23,7 @@ export async function getIp(page) {
 ```
 
 Passing those to the API should look as follows:
+POST /jobs
 
 ```json
 {
