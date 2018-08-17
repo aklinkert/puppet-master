@@ -9,4 +9,4 @@ The API is documented as [OpenAPI v3 spec](https://github.com/OAI/OpenAPI-Specif
 
 ## Postman Collection
 
-For simple tests of the API and to play around we also provide a sample [Postman](https://www.getpostman.com/) collection & environment located at the [`examples/postman` directory](https://github.com/Scalify/puppet-master/tree/master/examples/postman).
+For simple tests of the API and to play around we also provide a sample [Postman](https://www.getpostman.com/) collection & environment located at the [examples/postman directory](https://github.com/Scalify/puppet-master/tree/master/examples/postman).
