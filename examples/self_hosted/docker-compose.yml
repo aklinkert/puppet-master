@@ -2,7 +2,7 @@ version: '3.5'
 services:
   executor:
     image: scalify/puppet-master-executor
-  restart: always
+    restart: always
     networks:
       - puppet_master
     environment:
@@ -15,7 +15,7 @@ services:
   gateway:
     image: scalify/puppet-master-gateway
     build: .
-  restart: always
+    restart: always
     networks:
       - puppet_master
     environment:
