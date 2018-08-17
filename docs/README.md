@@ -174,4 +174,4 @@ Pretty cool, huh? We get a lot of information out there: How long the code took 
 
 ---------------------------------
 
-[puppet-master.io](https://puppet-master.io) is a project developed by [Scalify](https://www.scalify.me) and is open source using a [Apache License Version 2.0](https://github.com/Scalify/puppet-master-client-go/blob/master/LICENSE).
+[puppet-master.io](https://puppet-master.io) is a project developed by [Scalify](https://www.scalify.me) and is open source under [Apache 2.0 License](https://github.com/Scalify/puppet-master-client-go/blob/master/LICENSE).
