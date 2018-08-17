@@ -2,6 +2,7 @@ version: '3.5'
 services:
   executor:
     image: scalify/puppet-master-executor
+  restart: always
     networks:
       - puppet_master
     environment:
@@ -14,6 +15,7 @@ services:
   gateway:
     image: scalify/puppet-master-gateway
     build: .
+  restart: always
     networks:
       - puppet_master
     environment:
@@ -33,9 +35,10 @@ services:
       - "80:80"
 
   database:
-    image: couchdb:2.1.1
+    image: couchdb:2.2
     volumes:
       - "./data/database:/opt/couchdb/data"
+    restart: always
     networks:
       - puppet_master
     environment:
@@ -45,7 +48,7 @@ services:
       - "127.0.0.1:5984:5984"
 
   queue:
-    image: rabbitmq:3.7.4-management-alpine
+    image: rabbitmq:3.7.7-management-alpine
     environment:
       - "RABBITMQ_DEFAULT_USER=puppet"
       - "RABBITMQ_DEFAULT_PASS=puppet"
@@ -53,6 +56,7 @@ services:
       - "./data/queue:/var/lib/rabbitmq"
     expose:
       - "5672"
+    restart: always
     networks:
       - puppet_master
     ports:

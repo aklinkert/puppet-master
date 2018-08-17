@@ -21,7 +21,7 @@ docsify serve docs
 
 There is an example `docker-compose.yml` within the `examples/self_hosted` directory available as a quickstart reference. For more details please have a look at the [self hosted section of the docs](https://docs.puppet-master.io/#self_hosted).
 
-For simple tests of the API and to play around we also provide a sample [Postman](https://www.getpostman.com/) Collection & environment located at `examples/postman`.
+For simple tests of the API and to play around we also provide a sample [Postman](https://www.getpostman.com/) collection & environment located at `examples/postman`.
 
 ## License
 
