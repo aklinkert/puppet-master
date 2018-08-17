@@ -111,6 +111,8 @@ Response:
 
 As you can see, the API returns the job with a status `created`, which means it is scheduled for execution. When calling the API a few seconds later and ask for the current state, we get the following:
 
+GET /jobs/4caa2f0b-4dc4-4833-b5de-06002f728c24
+
 ```json
 {
     "data": {
