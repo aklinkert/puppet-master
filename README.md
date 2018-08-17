@@ -18,6 +18,10 @@ docsify serve docs
 ```
 
 
+## Examples
+
+There is an example `docker-compose.yml` within the `examples/self_hosted` directory available as a quickstart reference. For more details please have a look at the [self hosted section of the docs](https://docs.puppet-master.io/#self_hosted).
+
 ## License
 
 Copyright 2018 Scalify GmbH
