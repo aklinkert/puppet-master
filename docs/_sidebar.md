@@ -4,7 +4,7 @@
   * [Clients](clients.md)
   * [API](api.md)
   * [Support](support.md)
-  * [Execution context](execution.md)
+  * [Execution context](context.md)
   * [ES6 (shared) modules](modules)
 
 * Setup

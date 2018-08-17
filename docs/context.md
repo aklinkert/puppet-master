@@ -1,6 +1,14 @@
-# Code execution - Tools, Tips and available shared methods
+# Code execution context
+
+## async / await
+
+As you might have noticed
 
 ## global objects
+
+## page
+
+`page` is the pure unchanged Page object as documented in the [puppeteer Page docs](https://pptr.dev/#?product=Puppeteer&version=v1.7.0&show=api-class-page) which you may use to control the actual underlying browser.
 
 ### Vars
 

@@ -2,7 +2,20 @@
 
 puppet-master is a tool that executes website interaction code, written in ES6, in a highyl scalable and flexible manner. Head over to the [Docs](https://docs.puppet-master.io) for more information about setup, configuration and usage. [Signup for the hosted cloud version](https://puppet-master.io/register) or [host your own instance](https://docs.puppet-master.io/#/self_hosted).
 
-[Docs](https://docs.puppet-master.io)
+
+## docs
+
+Documentation is available at [Docs](https://docs.puppet-master.io), which is the GitHub pages deployment of the `docs` directory. The docs are using [docsify](https://github.com/docsifyjs/docsify/) and can be served locally by installing [docsify-cli](https://github.com/docsifyjs/docsify-cli):
+
+```bash
+# either
+npm i docsify-cli -g
+# or
+yarn global add docsify-cli
+
+# then serve the docs:
+docsify serve docs
+```
 
 
 ## License
