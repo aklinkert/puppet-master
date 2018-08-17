@@ -1,6 +1,6 @@
 # ES6 (shared) modules
 
-Puppet-master is completely build around ES6 and runs with enabled module flag. This is especially useful when writing reusable, shared modules for your application or tool. Having that said, here is an example showing how to use them:
+Puppet-master is completely built around ES6 and runs with enabled module flag. This is especially useful when writing reusable, shared modules for your application or tool. Having that said, here is an example showing how to use them:
 
 
 ```js
