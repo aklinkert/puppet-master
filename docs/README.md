@@ -14,7 +14,7 @@ You can talk to puppet-master via the [HTTP API](api.md). There are already some
 
 ## Complete Example
 
-Let's take the [google example from puppeteers Github repo](https://github.com/GoogleChrome/puppeteer/blob/d68033aeca234a93c9ac5298258a5d324748466a/examples/search.js) and execute it using puppet-master. This is the example code:
+Let's take the [google example from puppeteers Github repo](https://github.com/GoogleChrome/puppeteer/blob/d68033aeca234a93c9ac5298258a5d324748466a/examples/search.js) and execute it using puppet-master. First let's have a look at the original example: 
 
 ```js
 'use strict';
@@ -52,8 +52,8 @@ const puppeteer = require('puppeteer');
   await browser.close();
 })();
 ```
-
-We can make some small changes to the code: Add variables and export the results as well as remove the async/await wrapper, since puppet-master is already wrapping the code inside of an asnyc function for you.
+Since puppet-master is already wrapping the code inside of an async function, you don't need the async/wait wrapper anymore. Now we need to change the code a little bit by adding variables and exporting the results. 
+Following code uses puppet-master and returns the same as with puppeteer
 
 ```js
 await page.goto('https://developers.google.com/web/');
@@ -80,7 +80,8 @@ const links = await page.evaluate(resultsSelector => {
 results.links = links;
 ```
 
-Creating a job at the API may look like this:
+Creating this job via our [HTTP API](api.md) is super easy:
+POST /jobs
 
 ```json
 {
@@ -92,7 +93,7 @@ Creating a job at the API may look like this:
 }
 ```
 
-response:
+Response: (POST /jobs)
 ```json
 {
     "data": {
@@ -109,7 +110,9 @@ response:
 }
 ```
 
-As you can see, the API returns the job with a status `created`, which means that it is scheduled for execution. When calling the API a few seconds later and ask for the current state, we get the following:
+As you can see, the API returns the job with a status `created`, which means it is scheduled for execution. When calling the API a few seconds later and ask for the current state, we get the following:
+
+GET /jobs/4caa2f0b-4dc4-4833-b5de-06002f728c24
 
 ```json
 {
