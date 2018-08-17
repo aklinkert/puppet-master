@@ -81,6 +81,7 @@ results.links = links;
 ```
 
 Creating this job via our [HTTP API](api.md) is super easy:
+POST /jobs
 
 ```json
 {
@@ -92,7 +93,7 @@ Creating this job via our [HTTP API](api.md) is super easy:
 }
 ```
 
-Response: 
+Response: (POST /jobs)
 ```json
 {
     "data": {
