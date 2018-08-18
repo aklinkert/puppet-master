@@ -1,6 +1,8 @@
 # Clients
 
-Right now the clients listed on this page are available. If you want to contribute a client in an additional language
+Right now the clients listed on this page are available.
+
+> **Note**: If you want to contribute a client in an additional language please implement the [API spec](api.md#swagger-spec) and add it to this docs section!
 
 ## PHP
 
