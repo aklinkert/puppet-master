@@ -14,7 +14,6 @@ services:
 
   gateway:
     image: scalify/puppet-master-gateway
-    build: .
     restart: always
     networks:
       - puppet_master
