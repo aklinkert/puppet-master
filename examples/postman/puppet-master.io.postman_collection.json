@@ -163,7 +163,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"code\": \"logger.info(\\\"Alright, Kids?\\\");\\r\\nlogger.info(`Aye Aye, ${vars.name}!`);\\r\\nresults.okay =  1;\\r\\nresults.value =  Math.random() * 6 +1;\",\n\t\"vars\": {\n\t\t\"name\": \"Captain\"\n\t}\n}"
+					"raw": "{\n\t\"code\": \"logger.info(\\\"Alright, Kids?\\\");\\r\\nlogger.info(`Aye Aye, ${vars.name}!`);\\r\\nresults.okay =  1;\\r\\nresults.value =  Math.random() * 6 +1;\",\n\t\"vars\": {\n\t\t\"name\": \"Captain\"\n\t},\n\t\"modules\": {}\n}"
 				},
 				"url": {
 					"raw": "{{gateway_address}}/jobs",
@@ -204,7 +204,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"code\": \"await page.goto(vars.page);\\nconst text = await page.evaluate(() => document.querySelector('body').textContent);\\nlogger.info(text);\\nresults.text = text;\\nresults.ip = text.split(\\\":\\\")[1];\",\n\t\"vars\": {\n\t\t\"page\": \"http://ifcfg.co\"\n\t}\n}"
+					"raw": "{\n\t\"code\": \"await page.goto(vars.page);\\nconst text = await page.evaluate(() => document.querySelector('body').textContent);\\nlogger.info(text);\\nresults.text = text;\\nresults.ip = text.split(\\\":\\\")[1];\",\n\t\"vars\": {\n\t\t\"page\": \"http://ifcfg.co\"\n\t},\n\t\"modules\": {}\n}"
 				},
 				"url": {
 					"raw": "{{gateway_address}}/jobs",
