@@ -31,7 +31,6 @@ services:
       - "API_TOKEN=puppet"
       - "ENABLE_API=true"
       - "ENABLE_JOBS=true"
-    command: "gateway"
     ports:
       - "80:80"
 
